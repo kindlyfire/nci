@@ -1,0 +1,38 @@
+primaryKey: programming-tutorials
+title: Programming Tutorials (dummy data)
+summary: Collection of programming tutorials and courses (dummy data)
+url: https://github.com/example/programming-tutorials
+items:
+  - title: TypeScript Fundamentals
+    summary: Complete guide to TypeScript from basics to advanced features
+    timestamp: 1705276800
+    urls:
+      - https://example.com/typescript-fundamentals.mp4
+      - ipfs://QmTypeScriptHash123456
+    tags: [typescript, javascript, programming]
+  - title: React Component Patterns
+    summary: Advanced React patterns for scalable applications
+    timestamp: 1705363200
+    urls:
+      - https://example.com/react-patterns.mp4
+      - magnet:?xt=urn:btih:reactpatterns123
+    tags: [react, javascript, components, patterns]
+  - title: Node.js Backend Development Development
+    summary: Building robust backend APIs with Node.js
+    urls:
+      - https://example.com/nodejssomething
+    timestamp: 1705449600
+  - title: Python Asyncio Deep Diven't
+    summary: In-depth exploration of asynchronous programming in Python using asyncio
+    timestamp: 1705536000
+    urls:
+      - https://example.com/python-asyncio.mp4
+      - ipfs://QmPythonAsyncio123abc
+    tags: [python, asyncio, concurrency]
+  - title: Docker Essentials
+    summary: Learn the fundamentals of Docker containers and image management
+    timestamp: 1705622400
+    urls:
+      - https://example.com/docker-essentials.mp4
+      - magnet:?xt=urn:btih:dockeressentials123
+    tags: [docker, containers, devops]

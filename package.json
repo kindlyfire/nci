@@ -1,0 +1,61 @@
+{
+	"name": "@kindlyfire/nci",
+	"version": "0.1.1",
+	"description": "",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "tsx ./src/index.ts",
+		"build": "vite build && chmod +x ./dist/index.js",
+		"prepublishOnly": "npm run build"
+	},
+	"author": "Tijl Van den Brugghen <me@tijlvdb.me>",
+	"license": "ISC",
+	"packageManager": "pnpm@10.6.5",
+	"bin": {
+		"nci": "dist/index.js"
+	},
+	"files": [
+		"dist/"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"chalk": "^5.4.1",
+		"@orama/orama": "^3.1.11",
+		"@noble/hashes": "^1.8.0",
+		"@types/node": "^24.0.13",
+		"commander": "^14.0.0",
+		"nostr-tools": "^2.15.0",
+		"tsx": "^4.20.3",
+		"typescript": "^5.8.3",
+		"vite": "^7.0.4",
+		"yaml": "^2.8.0",
+		"zod": "^4.0.5"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild"
+		]
+	},
+	"prettier": {
+		"printWidth": 100,
+		"singleQuote": true,
+		"semi": false,
+		"useTabs": true,
+		"tabWidth": 4,
+		"arrowParens": "avoid",
+		"endOfLine": "lf",
+		"trailingComma": "es5",
+		"overrides": [
+			{
+				"files": "*.yaml",
+				"options": {
+					"tabWidth": 2
+				}
+			}
+		]
+	}
+}
