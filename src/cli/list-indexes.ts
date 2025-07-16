@@ -28,7 +28,7 @@ export function registerListIndexes(program: Command): void {
 				console.log(`${i + 1}. ${index.title || index.primaryKey}`)
 				if (index.summary) console.log(`   ${index.summary}`)
 				if (index.url) console.log(`   URL: ${index.url}`)
-				console.log(`   URI: nci:${pubkey}?k=${index.primaryKey}`)
+				console.log(`   URI: nci:${result.pubkey}?k=${index.primaryKey}`)
 				console.log(`   Items: ${index.itemCount}`)
 				console.log()
 			}
