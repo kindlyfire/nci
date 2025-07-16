@@ -10,7 +10,7 @@
 		"prepublishOnly": "npm run build"
 	},
 	"author": "Tijl Van den Brugghen <me@tijlvdb.me>",
-	"license": "ISC",
+	"license": "MIT",
 	"packageManager": "pnpm@10.6.5",
 	"bin": {
 		"nci": "dist/index.js"

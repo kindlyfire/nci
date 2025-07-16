@@ -5,7 +5,6 @@ export default defineConfig({
 		target: 'node20',
 		lib: {
 			entry: 'src/index.ts',
-			name: 'MCI',
 			formats: ['es'],
 			fileName: `index`,
 		},
