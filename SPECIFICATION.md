@@ -1,4 +1,4 @@
-# Content Index Spec
+# Content index spec
 
 Version: 1
 
@@ -14,18 +14,18 @@ A content index consists of multiple Nostr events with:
 The URL format is:
 
 ```
-nci:<npub>?k=<key>
+nci:<pubkey>?k=<primary-key>
 ```
 
-Where `<npub>` is the public key of the author of the content index (in npub or hex format), and
-`<key>` is the primary key.
+Where `<pubkey>` is the public key of the author of the content index (in npub or hex format), and
+`<primary-key>` is the index's identifier.
 
-All events returned by a query of `kind=30078` and tag `#t: ["nci:<key>"]` will be merged into a
-single content index.
+All events returned by a query of `kind=30078` and tag `#t: ["nci:<primary-key>"]` will be merged
+into a single content index.
 
 ## Event structure
 
-### Metadata Events
+### Metadata events
 
 Each content index **requires** a metadata event with:
 
@@ -41,11 +41,12 @@ Each content index **requires** a metadata event with:
     -   `url`
 -   Empty `content` field
 
-### Content Events
+### Content events
 
 Content events contain the chunks of items in the content index:
 
 -   `d` tag: `nci:<primary-key>:<chunk-index>`
+    -   `<chunk-index>` is the index of the chunk, starting from `0`
 -   `t` tag: `nci`
 -   `t` tag: `nci:<primary-key>`
 -   `content` field contains JSON representation of:
@@ -60,7 +61,7 @@ See "Index item" for the structure of `Item`.
 
 ## Index item
 
-An index item consists of a title, a summary, a timestamp, and one or more URLs, encoded as an
+An index item consists of a title, a summary, a timestamp, and zero or more URLs, encoded as an
 array. In addition, it may contain tags after the URLs.
 
 ```json
@@ -89,7 +90,7 @@ the second element is the tag value. When parsed, only tags with type "t" are ex
 
 ## Full index example
 
-### Metadata Event
+### Metadata event
 
 ```json
 {
@@ -111,7 +112,7 @@ the second element is the tag value. When parsed, only tags with type "t" are ex
 }
 ```
 
-### Content Event
+### Content event
 
 ```json
 {
