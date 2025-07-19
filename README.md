@@ -23,6 +23,7 @@ nci --help
 #   publish [options] <file>           Publish an index file to nostr
 #   delete [options]                   Delete all NCI events associated with a private key
 #   list-indexes [options]             List all content indexes
+#   key [privkey]                      Generate or display Nostr keys
 #   help [command]                     display help for command
 ```
 

@@ -3,6 +3,7 @@ import { ContentIndex } from '../utils/content-index'
 import { Nostr } from '../utils/nostr'
 import { hexToBytes } from '@noble/hashes/utils'
 import { getPublicKey } from 'nostr-tools'
+import chalk from 'chalk'
 
 export function registerPublish(program: Command): void {
 	program
@@ -16,22 +17,18 @@ export function registerPublish(program: Command): void {
 			(value, previous: string[] | undefined) => (previous ? [...previous, value] : [value])
 		)
 		.action(async (file: string, options: { privkey: string; relay?: string[] }) => {
-			console.log(`📄 Loading index file: ${file}`)
 			const index = ContentIndex.fromFile(file)
 
-			console.log(`   Primary Key: ${index.primaryKey}`)
-			if (index.title) console.log(`   Title: ${index.title}`)
-			if (index.summary) console.log(`   Summary: ${index.summary}`)
-			if (index.url) console.log(`   URL: ${index.url}`)
-			console.log(`   Items: ${index.items.length}`)
+			console.log(`${chalk.bold('primary-key:')} ${index.primaryKey}`)
+			console.log(`${chalk.bold('items:      ')} ${index.items.length}`)
+			console.log(
+				`${chalk.bold('uri:        ')} nci:${getPublicKey(hexToBytes(options.privkey))}?k=${
+					index.primaryKey
+				}`
+			)
 			console.log()
 
 			const events = ContentIndex.toEvents(index)
 			await Nostr.signAndPublishMany(events, hexToBytes(options.privkey))
-
-			console.log()
-			console.log(
-				`URI: nci:${getPublicKey(hexToBytes(options.privkey))}?k=${index.primaryKey}`
-			)
 		})
 }
